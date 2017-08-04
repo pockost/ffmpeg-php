@@ -636,8 +636,8 @@ static float _php_get_framerate(ff_movie_context *ffmovie_ctx)
 
 #if LIBAVCODEC_BUILD > 4753
     if (GET_CODEC_FIELD(st->codec, codec_type) == AVMEDIA_TYPE_VIDEO){
-        if (st->r_frame_rate.den && st->r_frame_rate.num) {
-            rate = av_q2d(st->r_frame_rate);
+        if (st->avg_frame_rate.den && st->avg_frame_rate.num) {
+            rate = av_q2d(st->avg_frame_rate);
         } else {
             rate = 1 / av_q2d(GET_CODEC_FIELD(st->codec, time_base));
         }
